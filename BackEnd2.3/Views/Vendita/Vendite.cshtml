@@ -1,0 +1,51 @@
+﻿@model List<Sala>
+@{
+    ViewData["Title"] = "Vendite Biglietti";
+}
+
+
+
+<h4 class="text-center">Gestione Vendita Biglietti</h4>
+
+<form asp-action="VendiBiglietto" method="post">
+    <label>Nome:</label>
+    <input type="text" name="nome" required class="w-100" />
+    <label>Cognome:</label>
+    <input type="text" name="cognome" required class="w-100" />
+
+    <label>Sala:</label>
+    <select name="sala" required class="w-100">
+        <option value="SALA NORD">SALA NORD</option>
+        <option value="SALA EST">SALA EST</option>
+        <option value="SALA SUD">SALA SUD</option>
+    </select>
+
+    <label>Tipo di Biglietto:</label>
+    <select name="tipo" required class="w-100">
+        <option value="Intero">Intero</option>
+        <option value="Ridotto">Ridotto</option>
+    </select>
+
+    <button type="submit" class="btn btn-info rounded-1 d-flex justify-content-end mt-3" asp-controller="Vendita" asp-action="VendiBiglietto">Vendi Biglietto</button>
+</form>
+
+
+<table class="d-flex justify-content-center" >
+    <tr>
+        <th class="pe-2">Sala</th>
+        <th class="p-2">Biglietti Venduti</th>
+        <th class="p-2">Biglietti Ridotti Venduti</th>
+        <th class="p-2">Capienza Massima</th>
+    </tr>
+    @foreach (var sala in Model)
+    {
+        <tr>
+            <td>@sala.NomeSala</td>
+            <td>@sala.BigliettiInteriVenduti</td>
+            <td>@sala.BigliettiRidottiVenduti</td>
+            <td>@sala.CapienzaMassima</td>
+        </tr>
+    }
+</table>
+
+
