@@ -32,7 +32,7 @@ namespace BackEnd2._3.Controllers
             var salaSelezionata = Sale.FirstOrDefault(s => s.NomeSala == sala);
             if (salaSelezionata != null && salaSelezionata.BigliettiInteriVenduti < salaSelezionata.CapienzaMassima)
             {
-              
+                salaSelezionata.BigliettiTotali++;
                 if (tipo == "Ridotto")
                 {
                     salaSelezionata.BigliettiRidottiVenduti++;

@@ -6,6 +6,7 @@
         public int CapienzaMassima { get; set; } = 120;
         public int BigliettiInteriVenduti { get; set; }
         public int BigliettiRidottiVenduti { get; set; }
+        public int BigliettiTotali {  get; set; }
 
     
 
