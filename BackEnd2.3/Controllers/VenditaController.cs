@@ -26,8 +26,8 @@ namespace BackEnd2._3.Controllers
         [HttpPost]
         public IActionResult VendiBiglietto(string nome, string cognome, string sala, string tipo)
         {
-            var persona = new Persona { Nome = nome, Cognome = cognome };
-            var biglietto = new Biglietto { Persona = persona, Sala = sala, Tipo = tipo };
+
+            var persona = new BigliettoVenduto { Nome = nome, Cognome = cognome, Tipo = tipo };
 
             var salaSelezionata = Sale.FirstOrDefault(s => s.NomeSala == sala);
             if (salaSelezionata != null && salaSelezionata.BigliettiInteriVenduti < salaSelezionata.CapienzaMassima)
@@ -37,6 +37,8 @@ namespace BackEnd2._3.Controllers
                 {
                     salaSelezionata.BigliettiRidottiVenduti++;
                 }
+
+                salaSelezionata.BigliettiVenduti.Add(persona);
             }
 
             return RedirectToAction("Vendite");
