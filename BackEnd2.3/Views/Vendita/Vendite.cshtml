@@ -34,16 +34,19 @@
 <table class="d-flex justify-content-center" >
     <tr>
         <th class="pe-2">Sala</th>
-        <th class="p-4">Biglietti Venduti</th>
-        <th class="p-4">Biglietti Ridotti Venduti</th>
+        <th class="p-4">Biglietti Interi Venduti</th>
+        <th class="p-4">Biglietti Ridotti</th>
+        <th class="p-4">Totale Biglietti</th>
         <th class="p-4">Capienza Massima</th>
     </tr>
     @foreach (var sala in Model)
     {
         <tr>
             <td>@sala.NomeSala</td>
+      
             <td class="text-center">@sala.BigliettiInteriVenduti</td>
             <td class="text-center">@sala.BigliettiRidottiVenduti</td>
+            <td class="text-center">@sala.BigliettiInteriVenduti+@sala.BigliettiRidottiVenduti</td>
             <td class="text-center">@sala.CapienzaMassima</td>
         </tr>
     
